@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include <math.h>
@@ -325,8 +326,7 @@ int  main() {
 
 	SetupWorld();
 
-	float dt = 0;
-	float time = clock();
+	double previousTime = glfwGetTime();
 
 	//Program core loop
 	while (!glfwWindowShouldClose(window)) {
@@ -336,23 +336,24 @@ int  main() {
 		// Clean the back buffer and assign the new color to it
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		dt = clock() - time;
-		time = clock();
-		if (dt < 50) {
-			world->tick(dt);
+		double currentTime = glfwGetTime();
+		float dt = static_cast<float>(currentTime - previousTime);
+		previousTime = currentTime;
+		// Clamp delayed frames to prevent large movement steps.
+		dt = std::min(dt, 0.05f);
+		world->tick(dt);
 				
-				if (GLOBALsceneUpdate) {
-					UpdatePosition();
-					UpdateEvents();
-					UpdateFriskPosition();
-					UpdateDialogueBoxPosition();
-					GLOBALsceneUpdate = false;
-					LastSceneID = GLOBALsceneID;
-				}
-				UpdateDialogue();
-				if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
-					fonsnegreReference->removeAll();
-				}
+		if (GLOBALsceneUpdate) {
+			UpdatePosition();
+			UpdateEvents();
+			UpdateFriskPosition();
+			UpdateDialogueBoxPosition();
+			GLOBALsceneUpdate = false;
+			LastSceneID = GLOBALsceneID;
+		}
+		UpdateDialogue();
+		if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+			fonsnegreReference->removeAll();
 		}
 
 		glfwSwapBuffers(window); //Swap buffers

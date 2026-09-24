@@ -14,7 +14,7 @@ public:
     void tickScript(float deltaTime) override;
 
 private:
-    float duration = 3000;
+    float duration = 3.0f;
     float current = 0;
     int aux = 0;
     bool finish = false;

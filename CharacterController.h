@@ -33,22 +33,22 @@ public:
 private:
 
     std::vector<const char*> topTexture = {"Textures/Frisk/Top/Frisk_Top_0001.png", "Textures/Frisk/Top/Frisk_Top_0002.png", "Textures/Frisk/Top/Frisk_Top_0003.png", "Textures/Frisk/Top/Frisk_Top_0004.png" };
-    Animation top = Animation(topTexture, 100);
+    Animation top = Animation(topTexture, 0.1f);
 
     std::vector<const char*> downTexture = { "Textures/Frisk/Down/Frisk_Down_0001.png", "Textures/Frisk/Down/Frisk_Down_0002.png", "Textures/Frisk/Down/Frisk_Down_0003.png", "Textures/Frisk/Down/Frisk_Down_0004.png" };
-    Animation down = Animation(downTexture, 100);
+    Animation down = Animation(downTexture, 0.1f);
 
     std::vector<const char*> leftTexture = { "Textures/Frisk/Left/Frisk_Left_0001.png", "Textures/Frisk/Left/Frisk_Left_0002.png", "Textures/Frisk/Left/Frisk_Left_0003.png", "Textures/Frisk/Left/Frisk_Left_0004.png" };
-    Animation left = Animation(leftTexture, 100);
+    Animation left = Animation(leftTexture, 0.1f);
 
     std::vector<const char*> rightTexture = { "Textures/Frisk/Right/Frisk_Right_0001.png", "Textures/Frisk/Right/Frisk_Right_0002.png", "Textures/Frisk/Right/Frisk_Right_0003.png", "Textures/Frisk/Right/Frisk_Right_0004.png" };
-    Animation right = Animation(rightTexture, 100);
+    Animation right = Animation(rightTexture, 0.1f);
 
-    void CheckCollision(float deltaTime);
+    void CheckCollision(float deltaTime, float movement);
 
     Animation current = down;
 
     float interactionTime = 0;
-    float interactionDuration = 165;
+    float interactionDuration = 0.165f;
     
 };

@@ -1,5 +1,6 @@
 #include "CharacterController.h"
 #include "global.h"
+#include <cmath>
 
 void CharacterController::startScript() 
 {
@@ -9,12 +10,13 @@ void CharacterController::startScript()
 void CharacterController::tickScript(float deltaTime) {
 
 	ComponentHandle<Transform> transform = entity->get<Transform>();
-	CheckCollision(deltaTime);
+	const float movement = 125.f * deltaTime;
+	CheckCollision(deltaTime, movement);
 
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		dialogueBoxActive = false;
 		if (collisionRight == false) {
-			transform->position += glm::vec2(1., 0.) * deltaTime / 8.f;
+			transform->position += glm::vec2(movement, 0.f);
 		}
 		AFK = false;
 		if (currDir.x == 1.0 && currDir.y == 0.0) {
@@ -30,7 +32,7 @@ void CharacterController::tickScript(float deltaTime) {
 	else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		dialogueBoxActive = false;
 		if (collisionLeft == false) {
-			transform->position += glm::vec2(-1., 0.) * deltaTime / 8.f;
+			transform->position += glm::vec2(-movement, 0.f);
 		}
 		AFK = false;
 		if (currDir.x == -1.0 && currDir.y == 0.0) {
@@ -46,7 +48,7 @@ void CharacterController::tickScript(float deltaTime) {
 	else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		dialogueBoxActive = false;
 		if (collisionTop == false) {
-			transform->position += glm::vec2(0., -1.) * deltaTime / 8.f;
+			transform->position += glm::vec2(0.f, -movement);
 		}
 		AFK = false;
 		if (currDir.x == 0. && currDir.y == -1.0) {
@@ -62,7 +64,7 @@ void CharacterController::tickScript(float deltaTime) {
 	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 
 		if (collisionDown == false) {
-			transform->position += glm::vec2(0., 1.) * deltaTime / 8.f;
+			transform->position += glm::vec2(0.f, movement);
 		}
 		AFK = false;
 		if (currDir.x == 0.0 && currDir.y == 1.0) {
@@ -122,7 +124,7 @@ void CharacterController::changeAnimation(Animation change) {
 	current.frameTextures = change.frameTextures;
 }
 
-void CharacterController::CheckCollision(float deltaTime) 
+void CharacterController::CheckCollision(float deltaTime, float movement)
 {
 
 	collisionRight = false;
@@ -141,61 +143,32 @@ void CharacterController::CheckCollision(float deltaTime)
 
 		ComponentHandle<Transform> other_transform = other_ent->get<Transform>();
 
-		glm::vec2 p1 = transform->position;
-		glm::vec2 p2 = other_transform->position;
+		const glm::vec2 playerPosition = transform->position;
+		const glm::vec2 otherPosition = other_transform->position;
+		const float halfWidth = (collider->width + other_collider->width) * 0.5f;
+		const float halfHeight = (collider->height + other_collider->height) * 0.5f;
+		auto overlapsAt = [&](const glm::vec2& position) {
+			return std::fabs(position.x - otherPosition.x) < halfWidth &&
+				std::fabs(position.y - otherPosition.y) < halfHeight;
+		};
 
-		float XD1 = p2.y - other_collider->height / 2;
-		float XD2 = p1.y - collider->height / 2;
-		float XD3 = p2.y + other_collider->height / 2;
-		float XD4 = p1.y + collider->height / 2;
-		float XD5 = p1.x - collider->width / 2;
-		float XD6 = p2.x + other_collider->width / 2;
-		float XD7 = p2.x - other_collider->width / 2;
-		float XD8 = p1.x + collider->width / 2;
+		const bool overlapsNow = overlapsAt(playerPosition);
+		const bool hitsRight = overlapsAt(playerPosition + glm::vec2(movement, 0.f));
+		const bool hitsLeft = overlapsAt(playerPosition + glm::vec2(-movement, 0.f));
+		const bool hitsTop = overlapsAt(playerPosition + glm::vec2(0.f, -movement));
+		const bool hitsDown = overlapsAt(playerPosition + glm::vec2(0.f, movement));
 
-		bool point1 = (XD1 < XD2) && (XD2 < XD3);
-		bool point2 = (XD3 > XD4) && (XD4 > XD1);
-
-		bool point3 = (XD7 < XD8) && (XD8 < XD6);
-		bool point4 = (XD6 > XD5) && (XD5 > XD7);
-		
-
-
-		if ((point1 || point2) && (fabs(XD5-XD6) == 1)) {
-
-			if (other_collider->isTrigger == true) {
+		if (other_collider->isTrigger) {
+			if (overlapsNow || hitsRight || hitsLeft || hitsTop || hitsDown) {
 				Interact(other_ent, deltaTime);
-				
 			}
-			collisionLeft = true;
+			return;
 		}
 
-		if ((point1 || point2) && (fabs(XD8-XD7) == 1)) {
-			if (other_collider->isTrigger == true) {
-
-				Interact(other_ent, deltaTime);
-				
-			}
-			collisionRight = true;
-		}
-
-		if ((point3 || point4) && (fabs(XD2-XD3) == 1)) {
-			if (other_collider->isTrigger == true) {
-				Interact(other_ent, deltaTime);
-				
-			}
-			collisionTop = true;
-		}
-
-		if ((point3 || point4) && (fabs(XD4-XD1) == 1)) {
-
-			if (other_collider->isTrigger == true) {
-
-				Interact(other_ent, deltaTime);
-				
-			}
-			collisionDown = true;
-		}
+		collisionRight = collisionRight || hitsRight;
+		collisionLeft = collisionLeft || hitsLeft;
+		collisionTop = collisionTop || hitsTop;
+		collisionDown = collisionDown || hitsDown;
 
 
 	});	
@@ -239,5 +212,3 @@ void CharacterController::Interact(Entity* other_entity, float deltaTime) {
 
 
 }
-
-

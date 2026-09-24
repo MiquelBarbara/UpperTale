@@ -63,7 +63,7 @@ struct Animation
 {
     Animation(){}
 
-    Animation(std::vector<const char*> filepath, int frameDuration)
+    Animation(std::vector<const char*> filepath, float frameDuration)
     {
         this->frameTextures = filepath;
         this->frameDuration = frameDuration;
@@ -71,7 +71,7 @@ struct Animation
 
     std::vector<const char*>  frameTextures;  // Texturas de cada fotograma
     int currentFrame;                   // Fotograma actual
-    int frameDuration;                // Duración de cada fotograma en segundos
+    float frameDuration;                // Duración de cada fotograma en segundos
     float currentTime;                  // Tiempo actual de la animación
       
 };
