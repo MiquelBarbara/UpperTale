@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos\Shaders">
+      <UniqueIdentifier>{e004d031-4dd4-4dd7-8321-ed0d0c725126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\ECS">
+      <UniqueIdentifier>{36f76909-1556-4b8f-8cbc-103bef6decc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\ECS">
+      <UniqueIdentifier>{15b5fabf-efcd-4da5-8c8e-8776326b27b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Scripts">
+      <UniqueIdentifier>{9fff57fe-4865-4572-a875-8b3c4d5a17bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Scripts">
+      <UniqueIdentifier>{f3909bc2-36a0-4b4e-8b8a-9d5e2621a5cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures">
+      <UniqueIdentifier>{f0167aec-153a-4272-95e0-26f04a74094e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Frisk">
+      <UniqueIdentifier>{66f9aef0-0f9c-4b7a-9e60-7160cec43e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Frisk\Down">
+      <UniqueIdentifier>{a2c07bc1-e0ac-460f-9533-6c3a160d421f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Frisk\Top">
+      <UniqueIdentifier>{6fd8246d-dcaa-4920-ac0b-62da3de6df90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Frisk\Right">
+      <UniqueIdentifier>{14502f37-63f2-4f92-a1d7-6b6c4ebb8d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Frisk\Left">
+      <UniqueIdentifier>{34864747-2d30-4f99-9a8b-b3001079f304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\World">
+      <UniqueIdentifier>{f92dec1d-9c15-4b74-8ca2-6dfbbb6af20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\UI">
+      <UniqueIdentifier>{5c54631a-a7ff-4d9f-8740-f0ef3d25bdc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Dialogue">
+      <UniqueIdentifier>{ad9d44d2-c8b9-4c54-aabe-ac0e8db24382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Dialogue\Objects">
+      <UniqueIdentifier>{ef5f1fb7-da59-4c9a-9d7d-4c8f54ac2600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Dialogue\Objects\Caja">
+      <UniqueIdentifier>{d14be583-5382-41e9-84d9-a75306cb5951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Textures\Dialogue\Objects\Cama">
+      <UniqueIdentifier>{a7081dbb-6844-4b74-8abe-58514fff6525}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="EBO.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>Archivos de origen\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptManager.cpp">
+      <Filter>Archivos de origen\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.cpp">
+      <Filter>Archivos de origen\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Components.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptSystem.cpp">
+      <Filter>Archivos de origen\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterController.cpp">
+      <Filter>Archivos de origen\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Archivos de origen\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Archivos de origen\Scripts</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vert">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
+    <None Include="default.frag">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
+    <None Include="inverted.frag">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
+    <None Include="repeating.frag">
+      <Filter>Archivos de recursos\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="EBO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptManager.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Script.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptSystem.h">
+      <Filter>Archivos de encabezado\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterController.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Archivos de encabezado\Scripts</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VideogameProgramming.rc">
+      <Filter>Archivos de recursos</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
