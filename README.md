@@ -4,6 +4,9 @@
 
 The project was built to learn the fundamentals of **Entity Component System (ECS) architecture** and **2D texture rendering**. The demo allows the player to explore a small environment, interact with objects, and progress through dialogues with Sans.
 
+<img width="794" height="792" alt="image" src="https://github.com/user-attachments/assets/487bab86-6c15-42a3-a75c-6905d11dade7" />
+
+
 ## What I Implemented
 
 My main contributions to the project were:
