@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by VideogameProgramming.rc
+// Used by UpperTale.rc
 
 // Valores predeterminados siguientes para nuevos objetos
 // 
